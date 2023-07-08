@@ -1,28 +1,28 @@
 package com.odavolt.pedoi.ui.components
 
-import android.graphics.drawable.VectorDrawable
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.OutlinedTextField
-import androidx.compose.material.Text
-import androidx.compose.material.TextFieldColors
-import androidx.compose.material.TextFieldDefaults
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.outlined.MoreVert
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.odavolt.pedoi.ui.theme.black
-import com.odavolt.pedoi.ui.theme.gray500
-import com.odavolt.pedoi.ui.theme.gray700
-import com.odavolt.pedoi.ui.theme.green700
+import com.odavolt.pedoi.ui.theme.*
 
 
 /**
@@ -50,7 +50,7 @@ fun TextHeading(modifier: Modifier = Modifier, value:String ){
  fun CustomTextInput(
     modifier: Modifier = Modifier,
     placeholder:String,
-    icon:VectorDrawable = VectorDrawable(),
+    icon: ImageVector,
     keyboardActions: KeyboardActions,
     keyboardOptions: KeyboardOptions,
     value:TextFieldValue,
@@ -60,20 +60,26 @@ fun TextHeading(modifier: Modifier = Modifier, value:String ){
      OutlinedTextField(
          modifier = modifier
              .fillMaxWidth()
-             .border(width = 1.dp, color = gray500)
-             .clip(shape = RoundedCornerShape(4.dp))
          ,
          colors = TextFieldDefaults.outlinedTextFieldColors(
-             focusedBorderColor = gray500,
+             focusedBorderColor = Color.Transparent,
              backgroundColor = gray500,
              cursorColor = green700,
+             unfocusedBorderColor = Color.Transparent
 
 
          ),
+         shape = RoundedCornerShape(24.dp),
          placeholder= {
                  Text(text = placeholder)
          },
+         leadingIcon = {
+              Icon(imageVector = icon , contentDescription ="icon" )
+
+         },
          value = value,
+         singleLine = true,
+         maxLines = 1,
          onValueChange ={
              onValueChange(it)
 
@@ -81,3 +87,74 @@ fun TextHeading(modifier: Modifier = Modifier, value:String ){
      )
 
  }
+
+
+
+@Composable
+fun PasswordTextInput(
+    modifier: Modifier = Modifier,
+    placeholder:String,
+    icon: ImageVector,
+    keyboardActions: KeyboardActions,
+    keyboardOptions: KeyboardOptions = KeyboardOptions(
+        keyboardType = KeyboardType.Password
+    ),
+    value:TextFieldValue,
+    onValueChange:(value:TextFieldValue)-> Unit
+){
+
+    OutlinedTextField(
+        modifier = modifier
+            .fillMaxWidth()
+        ,
+        colors = TextFieldDefaults.outlinedTextFieldColors(
+            focusedBorderColor = Color.Transparent,
+            backgroundColor = gray500,
+            cursorColor = green700,
+            unfocusedBorderColor = Color.Transparent
+
+
+        ),
+        shape = RoundedCornerShape(24.dp),
+        placeholder= {
+            Text(text = placeholder)
+        },
+        leadingIcon = {
+            Icon(imageVector = icon , contentDescription ="icon" )
+
+        },
+        trailingIcon = {
+            Icon(imageVector = Icons.Outlined.MoreVert, contentDescription ="visibility icon" )
+        },
+        value = value,
+        singleLine = true,
+        maxLines = 1,
+        onValueChange ={
+            onValueChange(it)
+
+        }
+    )
+
+}
+
+
+@Composable
+fun CustomButton(
+    modifier:Modifier = Modifier,
+    title:String,
+    onClick:()->Unit
+){
+
+    Button(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(48.dp),
+        colors = ButtonDefaults.buttonColors(
+            backgroundColor = green700,
+
+        ),
+        shape = RoundedCornerShape(24.dp),
+        onClick = { /*TODO*/ }) {
+           Text(text = title, fontSize = 14.sp, color =  white, fontWeight = FontWeight.Medium, textAlign = TextAlign.Center)
+    }
+}

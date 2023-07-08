@@ -13,10 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.odavolt.pedoi.ui.screens.auth.LoginScreen
+
 import com.odavolt.pedoi.ui.theme.PedoiTheme
 import com.odavolt.pedoi.ui.theme.gray500
-import com.odavolt.pedoi.ui.theme.green700
+import com.odavolt.pedoi.navigation.PedoiNavigation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PedoiTheme {
                App {
-                  LoginScreen()
+                   PedoiNavigation( )
                }
             }
         }
@@ -53,15 +53,4 @@ fun App(modifier:Modifier = Modifier.fillMaxSize(),content:@Composable ()-> Unit
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    App() {
-        Greeting(name = "Code")
-    }
-}
