@@ -11,6 +11,7 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import com.odavolt.pedoi.Navigation.MainNavigation
 
 
 import com.odavolt.pedoi.ui.theme.PedoiTheme
@@ -22,7 +23,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PedoiTheme {
                App {
-
+                 MainNavigation()
                }
             }
         }
