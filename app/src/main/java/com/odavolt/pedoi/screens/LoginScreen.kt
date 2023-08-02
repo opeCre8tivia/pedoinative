@@ -39,12 +39,9 @@ fun LoginScreen(
 ){
 
     var email  = viewModel.email
-    var password = remember {
-        mutableStateOf(TextFieldValue(""))
-    }
-    var isValid  = remember{
-        mutableStateOf(false)
-    }
+    var password = viewModel.password
+    var isValid  = viewModel.isValid
+
 
     if(email.value.text.trim().isNotEmpty() && password.value.text.trim().isNotEmpty()){
         isValid.value = true
