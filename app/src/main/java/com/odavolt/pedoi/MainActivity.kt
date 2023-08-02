@@ -11,19 +11,27 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.odavolt.pedoi.Navigation.MainNavigation
+import com.odavolt.pedoi.navigation.MainNavigation
+import com.odavolt.pedoi.screens.auth.AuthViewModel
 
 
 import com.odavolt.pedoi.ui.theme.PedoiTheme
 import com.odavolt.pedoi.ui.theme.gray500
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             PedoiTheme {
                App {
                  MainNavigation()
+
                }
             }
         }

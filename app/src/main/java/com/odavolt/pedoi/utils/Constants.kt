@@ -6,5 +6,13 @@ enum class ScreenNames {
     PedoiSplashScreen,
     AuthNavigationScreen,
     FarmerNavigationScreen,
-    InvestorNavigationScreen
+    InvestorNavigationScreen,
+    LoginScreen,
+    RegisterScreen,
+    ResetPasswordScreen,
+    AccountSelectionScreen,
+    FarmerHomeScreen,
+    FarmerHomeTabScreen,
+    FarmerAddRecordTabScreen,
+    FarmerProfileTabScreen
 }

@@ -11,10 +11,12 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import androidx.navigation.NavController
 import com.odavolt.pedoi.R
 import com.odavolt.pedoi.utils.ScreenNames
 import kotlinx.coroutines.delay
+import java.time.LocalDate
 
 @Composable
 fun  PedoiSplashScreen(navController: NavController){
@@ -23,6 +25,8 @@ fun  PedoiSplashScreen(navController: NavController){
         delay(4000L)
         navController.navigate(ScreenNames.AuthNavigationScreen.name)
     }
+
+
     Surface(modifier = Modifier
         .fillMaxSize(),
         color = Color(0xFFFFFFFF)
@@ -49,3 +53,5 @@ fun  PedoiSplashScreen(navController: NavController){
         
     }
 }
+
+
