@@ -100,7 +100,9 @@ fun LoginScreen(
             Spacer(modifier = Modifier.height(30.dp))
 
             CustomButton(title = "Login", enabled = isValid.value) {
-                Log.d("BTN", "LoginScreen: Clicked---->")
+
+                  viewModel.loginUser()
+
             }
 
             Row(
